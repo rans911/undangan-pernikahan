@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan Andini & Rizki</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #8B0000, #800020, #5E1914);
+            color: #555;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 15px;
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .heart {
+            position: absolute;
+            color: rgba(139, 0, 0, 0.4);
+            font-size: 20px;
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(-25px) rotate(15deg); opacity: 1; }
+        }
+        
+        .love-sparkle {
+            position: absolute;
+            color: rgba(255, 182, 193, 0.8);
+            font-size: 14px;
+            animation: sparkle 3s infinite ease-in-out;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { transform: scale(0.8); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0 25px 0;
+            background: linear-gradient(135deg, #8B0000, #800020, #5E1914);
+            margin: -15px -15px 25px -15px;
+            border-bottom-left-radius: 50% 20%;
+            border-bottom-right-radius: 50% 20%;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><path d="M50,30 C60,20 75,25 75,35 C75,45 60,50 50,60 C40,50 25,45 25,35 C25,25 40,20 50,30 Z" fill="%23ffffff"/></svg>');
+            background-size: 80px;
+            opacity: 0.1;
+        }
+        
+        .invitation-text {
+            font-size: 16px;
+            color: #f8d7da;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            font-style: italic;
+        }
+        
+        .couple-names {
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            animation: pulse 3s infinite;
+            letter-spacing: 1px;
+            position: relative;
+            padding: 0 10px;
+        }
+        
+        .couple-names::before, .couple-names::after {
+            content: "♥";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ffd700;
+            font-size: 20px;
+            animation: heartBeat 1.5s infinite;
+        }
+        
+        .couple-names::before {
+            left: -10px;
+        }
+        
+        .couple-names::after {
+            right: -10px;
+        }
+        
+        @keyframes heartBeat {
+            0%, 100% { transform: translateY(-50%) scale(1); }
+            50% { transform: translateY(-50%) scale(1.2); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); }
+            50% { transform: scale(1.03); text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4); }
+            100% { transform: scale(1); text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); }
+        }
+        
+        .wedding-title {
+            font-size: 18px;
+            color: #f8d7da;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+            font-weight: 300;
+        }
+        
+        .date {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            margin: 15px 0;
+            padding: 12px 25px;
+            background-color: rgba(139, 0, 0, 0.4);
+            display: inline-block;
+            border-radius: 30px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: glow 2s infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { box-shadow: 0 0 5px rgba(255, 215, 218, 0.5); }
+            to { box-shadow: 0 0 15px rgba(255, 215, 218, 0.8); }
+        }
+        
+        section {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(139, 0, 0, 0.15);
+        }
+        
+        h2 {
+            color: #8B0000;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 22px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #800020;
+            position: relative;
+        }
+        
+        h2::after {
+            content: "❦";
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 0 10px;
+            color: #800020;
+            font-size: 18px;
+        }
+        
+        .couple-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .bride, .groom {
+            width: 48%;
+            text-align: center;
+            padding: 20px 15px;
+            border-radius: 12px;
+            transition: all 0.3s;
+            position: relative;
+            background: linear-gradient(to bottom, #f8f0f0, #ffffff);
+        }
+        
+        .bride:hover, .groom:hover {
+            background: linear-gradient(to bottom, #f0e0e0, #f8f0f0);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.1);
+        }
+        
+        .bride h3, .groom h3 {
+            color: #8B0000;
+            margin-bottom: 12px;
+            font-size: 18px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .bride h3::after, .groom h3::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 2px;
+            background: #800020;
+        }
+        
+        .event-details {
+            text-align: center;
+        }
+        
+        .event-item {
+            margin-bottom: 20px;
+            padding: 18px;
+            border-radius: 12px;
+            background: linear-gradient(to right, #f8f0f0, #f0e0e0);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .event-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: 0.5s;
+        }
+        
+        .event-item:hover::before {
+            left: 100%;
+        }
+        
+        .event-item:hover {
+            background: linear-gradient(to right, #f0e0e0, #f8f0f0);
+            transform: scale(1.03);
+        }
+        
+        .event-item h3 {
+            color: #8B0000;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+        
+        .location {
+            text-align: center;
+        }
+        
+        .map-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 25px;
+            background: linear-gradient(to right, #8B0000, #800020);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(139, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .map-link::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
+        
+        .map-link:hover::before {
+            left: 100%;
+        }
+        
+        .map-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(139, 0, 0, 0.4);
+        }
+        
+        .map-link:active {
+            transform: translateY(1px);
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .gallery-item {
+            height: 130px;
+            background: linear-gradient(135deg, #f8d7da, #f1b0b7);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8B0000;
+            font-style: italic;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .gallery-item::before {
+            content: "♥";
+            position: absolute;
+            font-size: 30px;
+            opacity: 0.2;
+            animation: rotate 10s infinite linear;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.1);
+        }
+        
+        .bank-details {
+            text-align: center;
+        }
+        
+        .bank-info {
+            background: linear-gradient(135deg, #f8f0f0, #f0e0e0);
+            padding: 18px;
+            border-radius: 12px;
+            margin-top: 15px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bank-info::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .bank-info:hover::before {
+            opacity: 1;
+        }
+        
+        .bank-info:hover {
+            transform: scale(1.02);
+        }
+        
+        .bank-name {
+            font-weight: bold;
+            color: #8B0000;
+            font-size: 18px;
+        }
+        
+        .account-number {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #333;
+            letter-spacing: 2px;
+        }
+        
+        .account-name {
+            font-style: italic;
+            color: #666;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px 0;
+            color: #800020;
+            font-size: 16px;
+            margin-top: 20px;
+            border-top: 2px dashed #800020;
+            position: relative;
+        }
+        
+        footer::before {
+            content: "✨";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 0 15px;
+            font-size: 20px;
+        }
+        
+        .rsvp-button {
+            display: block;
+            width: 85%;
+            margin: 25px auto;
+            padding: 16px;
+            background: linear-gradient(to right, #8B0000, #800020);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.4);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .rsvp-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+        
+        .rsvp-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(139, 0, 0, 0.5);
+        }
+        
+        .rsvp-button:hover::before {
+            left: 100%;
+        }
+        
+        .rsvp-button:active {
+            transform: translateY(2px);
+        }
+        
+        /* Modal untuk konfirmasi kehadiran */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.5s;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: slideUp 0.5s;
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #8B0000;
+        }
+        
+        .modal h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #8B0000;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+        
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #800020;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+        }
+        
+        .form-group textarea {
+            height: 80px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to right, #8B0000, #800020);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.4);
+        }
+        
+        .confirmation-message {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background: #f8f0f0;
+            border-radius: 10px;
+            margin-top: 20px;
+            color: #8B0000;
+            animation: fadeIn 0.5s;
+        }
+        
+        .contact-options {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .contact-option {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 15px;
+            background: #f8f0f0;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #8B0000;
+            transition: all 0.3s;
+        }
+        
+        .contact-option:hover {
+            background: #8B0000;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .love-effect {
+            position: fixed;
+            pointer-events: none;
+            z-index: 999;
+            font-size: 24px;
+            animation: loveFloat 2s ease-out forwards;
+        }
+        
+        @keyframes loveFloat {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-100px) scale(0.5); opacity: 0; }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .couple-names {
+                font-size: 26px;
+            }
+            
+            .gallery-item {
+                height: 110px;
+            }
+            
+            .account-number {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts">
+        <!-- Hati-hati akan di-generate oleh JavaScript -->
+    </div>
+    
+    <div class="container">
+        <header>
+            <div class="invitation-text">Dengan penuh kebahagiaan, kami mengundang Bapak/Ibu/Saudara/i</div>
+            <div class="couple-names">DEDE & AFNI</div>
+            <div class="wedding-title">UNDANGAN PERNIKAHAN</div>
+            <div class="date">Kamis, 15 November 2024</div>
+        </header>
+        
+        <section class="couple-section">
+            <h2>Mempelai</h2>
+            <div class="couple-info">
+                <div class="bride">
+                    <h3><i class="fas fa-female"></i> Mempelai Wanita</h3>
+                    <p>Andini Sari</p>
+                    <p>Putri dari Bpk. Budi & Ibu Sari</p>
+                </div>
+                <div class="groom">
+                    <h3><i class="fas fa-male"></i> Mempelai Pria</h3>
+                    <p>Rizki Pratama</p>
+                    <p>Putra dari Bpk. Joko & Ibu Maya</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="event-section">
+            <h2>Acara</h2>
+            <div class="event-details">
+                <div class="event-item">
+                    <h3><i class="far fa-heart"></i> Akad Nikah</h3>
+                    <p>Pukul 09.00 - 10.00 WIB</p>
+                </div>
+                <div class="event-item">
+                    <h3><i class="fas fa-glass-cheers"></i> Resepsi</h3>
+                    <p>Pukul 11.00 - 14.00 WIB</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="location-section">
+            <h2>Lokasi</h2>
+            <div class="location">
+                <p><i class="fas fa-map-marker-alt"></i> Gedung Serba Guna Merdeka</p>
+                <p>Jl. Kemerdekaan No. 123, Jakarta Pusat</p>
+                <a href="#" class="map-link"><i class="fas fa-map"></i> Buka di Google Maps</a>
+            </div>
+        </section>
+        
+
+        <section class="bank-section">
+            <h2>Kirim Hadiah</h2>
+            <div class="bank-details">
+                <p>Bagi yang ingin memberikan kado pernikahan, dapat melalui:</p>
+                <div class="bank-info">
+                    <div class="bank-name"><i class="fas fa-university"></i> SEABANK</div>
+                    <div class="account-number">901467428064</div>
+                    <div class="account-name">Nur Afni Anggraini</div>
+                </div>
+            </div>
+        </section>
+        
+        <button class="rsvp-button" id="rsvpBtn">
+            <i class="far fa-paper-plane"></i> Konfirmasi Kehadiran
+        </button>
+        
+        <footer>
+            <p>Terima kasih atas doa dan restunya</p>
+            <p>Kami yang berbahagia,</p>
+            <p><strong>Andini & Rizki</strong></p>
+        </footer>
+    </div>
+    
+    <!-- Modal Konfirmasi Kehadiran -->
+    <div class="modal" id="rsvpModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h3><i class="far fa-check-circle"></i> Konfirmasi Kehadiran</h3>
+            <form id="rsvpForm">
+                <div class="form-group">
+                    <label for="name">Nama Lengkap *</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Nomor WhatsApp *</label>
+                    <input type="tel" id="phone" required placeholder="Contoh: 08123456789">
+                </div>
+                <div class="form-group">
+                    <label for="guestCount">Jumlah Tamu *</label>
+                    <select id="guestCount" required>
+                        <option value="" disabled selected>Pilih jumlah tamu</option>
+                        <option value="1">1 Orang</option>
+                        <option value="2">2 Orang</option>
+                        <option value="3">3 Orang</option>
+                        <option value="4">4 Orang</option>
+                        <option value="5">5 Orang atau lebih</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="attendance">Konfirmasi Kehadiran *</label>
+                    <select id="attendance" required>
+                        <option value="" disabled selected>Pilih konfirmasi</option>
+                        <option value="hadir">Ya, saya akan hadir</option>
+                        <option value="tidak-hadir">Maaf, tidak bisa hadir</option>
+                        <option value="mungkin">Masih belum pasti</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Ucapan / Doa (opsional)</label>
+                    <textarea id="message" placeholder="Tuliskan ucapan atau doa untuk mempelai..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Kirim Konfirmasi</button>
+            </form>
+            <div class="confirmation-message" id="confirmationMessage">
+                <h4><i class="fas fa-check"></i> Terima Kasih!</h4>
+                <p>Konfirmasi kehadiran Anda telah terkirim.</p>
+                <p>Kami sangat menantikan kehadiran Anda.</p>
+            </div>
+            
+            <div class="contact-options">
+                <p>Atau hubungi kami langsung:</p>
+                <a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20konfirmasi%20kehadiran%20untuk%20pernikahan%20Andini%20%26%20Rizki" class="contact-option" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="tel:+6281234567890" class="contact-option">
+                    <i class="fas fa-phone"></i> Telepon
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Membuat hati-hati melayang
+        const floatingHearts = document.querySelector('.floating-hearts');
+        for (let i = 0; i < 20; i++) {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.top = Math.random() * 100 + '%';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            heart.style.fontSize = (Math.random() * 15 + 10) + 'px';
+            floatingHearts.appendChild(heart);
+        }
+        
+        // Membuat efek sparkle
+        for (let i = 0; i < 15; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('love-sparkle');
+            sparkle.innerHTML = '✨';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 3 + 's';
+            document.body.appendChild(sparkle);
+        }
+        
+        // Efek love saat mengklik
+        document.addEventListener('click', function(e) {
+            const love = document.createElement('div');
+            love.classList.add('love-effect');
+            love.innerHTML = '❤';
+            love.style.left = e.pageX + 'px';
+            love.style.top = e.pageY + 'px';
+            love.style.color = ['#8B0000', '#800020', '#FF69B4', '#FF1493'][Math.floor(Math.random() * 4)];
+            document.body.appendChild(love);
+            
+            setTimeout(() => {
+                love.remove();
+            }, 2000);
+        });
+        
+        // Modal konfirmasi kehadiran
+        const rsvpBtn = document.getElementById('rsvpBtn');
+        const rsvpModal = document.getElementById('rsvpModal');
+        const closeModal = document.getElementById('closeModal');
+        const rsvpForm = document.getElementById('rsvpForm');
+        const confirmationMessage = document.getElementById('confirmationMessage');
+        
+        rsvpBtn.addEventListener('click', () => {
+            rsvpModal.style.display = 'flex';
+        });
+        
+        closeModal.addEventListener('click', () => {
+            rsvpModal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === rsvpModal) {
+                rsvpModal.style.display = 'none';
+            }
+        });
+        
+        rsvpForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Ambil data dari form
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                guestCount: document.getElementById('guestCount').value,
+                attendance: document.getElementById('attendance').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toLocaleString('id-ID')
+            };
+            
+            try {
+                // Opsi 1: Kirim ke Google Sheets (Recommended)
+                await sendToGoogleSheets(formData);
+                
+                // Opsi 2: Kirim ke WhatsApp
+                // sendToWhatsApp(formData);
+                
+                // Opsi 3: Kirim ke Email
+                // sendToEmail(formData);
+                
+                // Tampilkan pesan konfirmasi
+                rsvpForm.style.display = 'none';
+                confirmationMessage.style.display = 'block';
+                
+                // Reset form dan tutup modal setelah 3 detik
+                setTimeout(() => {
+                    rsvpModal.style.display = 'none';
+                    rsvpForm.reset();
+                    rsvpForm.style.display = 'block';
+                    confirmationMessage.style.display = 'none';
+                }, 3000);
+                
+            } catch (error) {
+                alert('Maaf, terjadi kesalahan. Silakan coba lagi atau hubungi kami langsung.');
+                console.error('Error:', error);
+            }
+        });
+        
+        // Fungsi untuk mengirim data ke Google Sheets
+        async function sendToGoogleSheets(data) {
+            // Ganti dengan URL Google Apps Script Anda
+            const scriptURL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+            
+            const response = await fetch(scriptURL, {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            
+            return response.json();
+        }
+        
+        // Fungsi untuk mengirim ke WhatsApp
+        function sendToWhatsApp(data) {
+            const message = `Konfirmasi Kehadiran Pernikahan%0A%0ANama: ${data.name}%0ANomor HP: ${data.phone}%0AJumlah Tamu: ${data.guestCount}%0AKehadiran: ${data.attendance}%0AUcapan: ${data.message || '-'}`;
+            window.open(`https://wa.me/6281234567890?text=${message}`, '_blank');
+        }
+        
+        // Fungsi untuk mengirim ke Email (menggunakan mailto)
+        function sendToEmail(data) {
+            const subject = `Konfirmasi Kehadiran - ${data.name}`;
+            const body = `
+Nama: ${data.name}
+Nomor HP: ${data.phone}
+Jumlah Tamu: ${data.guestCount}
+Kehadiran: ${data.attendance}
+Ucapan: ${data.message || '-'}
+Waktu: ${data.timestamp}
+            `.trim();
+            
+            window.location.href = `mailto:andini.rizki@email.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+        
+        // Efek scroll halus untuk link
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
